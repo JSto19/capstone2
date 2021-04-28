@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <form action='/getnews' method="POST">
+        <input type="text" placeholder="Enter a search term" name='keyword'>
+        <button type="submit">Get News</button>
+        {% for post in news %}
+            <h2>{{post['title']}}</h2>
+            <i>{{post['publishedAt']}}</i>
+            <p>{{post['description']}}</p>
+        {% endfor %}
+    </form>
+    
+{% endblock %}
